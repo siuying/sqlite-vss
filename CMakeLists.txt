@@ -49,7 +49,7 @@ target_compile_definitions(sqlite-vector-static PUBLIC SQLITE_CORE)
 # ================================== sqlite-vss ================================== #
 add_library(sqlite-vss SHARED src/sqlite-vss.cpp)
 target_link_libraries(sqlite-vss sqlite3)
-target_link_libraries(sqlite-vss faiss_avx2)
+target_link_libraries(sqlite-vss faiss)
 target_include_directories(sqlite-vss PUBLIC "${PROJECT_BINARY_DIR}")
 
 set_target_properties(sqlite-vss PROPERTIES PREFIX "")
@@ -58,7 +58,7 @@ set_target_properties(sqlite-vss PROPERTIES OUTPUT_NAME "vss0")
 # ============================== sqlite-vss-static =============================== #
 add_library(sqlite-vss-static STATIC src/sqlite-vss.cpp)
 target_link_libraries(sqlite-vss-static PRIVATE sqlite3)
-target_link_libraries(sqlite-vss-static PUBLIC faiss_avx2)
+target_link_libraries(sqlite-vss-static PUBLIC faiss)
 target_link_options(sqlite-vss-static PRIVATE "-Wl,-all_load")
 target_include_directories(sqlite-vss-static PUBLIC "${PROJECT_BINARY_DIR}")
 set_target_properties(sqlite-vss-static PROPERTIES OUTPUT_NAME "sqlite_vss0")
