@@ -106,7 +106,7 @@ jobs:
           name: ${{ env.ARTIFACT-MACOS-X86_64-WHEELS }}
           path: dist/release/wheels/*.whl
   build-macos-aarch64-extension:
-    runs-on: [self-hosted, mm1]
+    runs-on: [self-hosted, macOS, arm64]
     steps:
       - uses: actions/checkout@v3
         with:
@@ -134,7 +134,7 @@ jobs:
           name: ${{ env.ARTIFACT-MACOS-AARCH64-EXTENSION }}
           path: dist/release/*
   build-macos-aarch64-python:
-    runs-on: [self-hosted, mm1]
+    runs-on: [self-hosted, macOS, arm64]
     needs: [build-macos-aarch64-extension]
     steps:
       - uses: actions/checkout@v3
